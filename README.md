@@ -1,9 +1,3 @@
-Since you've built a full-stack IoT solution with **Flutter**, **Firebase**, and **ESP32**—and even navigated the tricky waters of **Xcode** and **Gradle** configurations—your README should reflect the technical depth of the project.
-
-Here is a professional, comprehensive `README.md` for **ColdChain**.
-
----
-
 # 🧊 ColdChain: IoT Smart Cold Chain Monitor
 
 **ColdChain** is a real-time logistics monitoring solution designed to track temperature and humidity for sensitive cargo (vaccines, food, chemicals). It utilizes an ESP32 hardware unit to stream environmental data to a Flutter mobile dashboard via Firebase, providing instant alerts for environmental breaches.
@@ -93,10 +87,3 @@ If you encounter the **Kotlin Daemon** or **Xcode hanging** errors during build:
 
 ## 👨‍💻 Author
 **Mahadurage Sadeesa Damruwan** *Student ID: 10965346* *NSBM Green University / Plymouth University Partnership*
-
----
-
-### How to use this:
-1.  Create a new file in your project root named `README.md`.
-2.  Paste the content above.
-3.  Replace the `your-username` link with your actual GitHub link.
