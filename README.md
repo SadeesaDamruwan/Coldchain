@@ -1,17 +1,94 @@
-# coldchain
+🧊 ColdChain: IoT Smart Cold Chain Monitor
+ColdChain is a real-time logistics monitoring solution designed to track temperature and humidity for sensitive cargo (vaccines, food, chemicals). It utilizes an ESP32 hardware unit to stream environmental data to a Flutter mobile dashboard via Firebase, providing instant alerts for environmental breaches.
 
-A new Flutter project.
+🚀 Key Features
+Real-time Dashboard: Live temperature and humidity streaming with dynamic status indicators (Safe, Warning, Critical).
 
-## Getting Started
+Smart Alerts: Instant push notifications triggered by hardware sensors (DHT11/22 and Magnetic Door Switch).
 
-This project is a starting point for a Flutter application.
+Shipment Management: Easily add and categorize containers with unique IDs and starting locations.
 
-A few resources to get you started if this is your first Flutter project:
+Animated UI: Smooth transitions and custom-built splash screens for a premium user experience.
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+Cross-Platform: Optimized for both iOS (via CocoaPods/APNs) and Android (via Gradle/FCM).
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+🛠 Tech Stack
+Mobile Application
+Framework: Flutter (Dart)
+
+State Management: StatefulWidgets with StreamBuilder for real-time sync.
+
+Navigation: Custom bottom navigation architecture.
+
+Backend & Cloud
+Database: * Cloud Firestore: Stores container metadata and current status.
+
+Realtime Database: Handles high-frequency telemetry from IoT devices.
+
+Functions: Node.js Cloud Functions for processing telemetry and sending FCM notifications.
+
+Auth: Firebase Database Secrets for secure hardware communication.
+
+Hardware (IoT)
+Microcontroller: ESP32 / Arduino
+
+Sensors: * DHT11/22: Temperature and Humidity.
+
+Magnetic Reed Switch: Detects unauthorized container door opening.
+
+⚙️ Setup & Installation
+1. Flutter Mobile App
+Clone the repository:
+
+Bash
+git clone https://github.com/your-username/coldchain.git
+Install dependencies:
+
+Bash
+flutter pub get
+Android Configuration:
+
+Place google-services.json in android/app/.
+
+Enable Core Library Desugaring in build.gradle.kts.
+
+iOS Configuration:
+
+Place GoogleService-Info.plist in ios/Runner/.
+
+Run pod install in the ios directory.
+
+2. Firebase Configuration
+Enable Firestore and Realtime Database.
+
+Rules: Ensure your database rules allow read/write access for your prototype.
+
+Messaging: Set up FCM (Android) and APNs (iOS) for push notifications.
+
+3. ESP32 Hardware
+Open the .ino file in Arduino IDE.
+
+Install Firebase ESP32 Client and DHT sensor library.
+
+Update the WIFI_SSID, WIFI_PASSWORD, and FIREBASE_AUTH secret.
+
+Upload to your ESP32.
+
+📁 Project Structure
+Plaintext
+lib/
+├── models/          # Data blueprints (ContainerModel)
+├── screens/         # UI Screens (Dashboard, Shipments, Alerts)
+├── services/        # Firebase & Notification logic
+└── main.dart        # App entry point & initialization
+android/             # Optimized Gradle & Proguard settings
+ios/                 # CocoaPods & APNs configuration
+⚠️ Known Build Fixes
+If you encounter the Kotlin Daemon or Xcode hanging errors during build:
+
+Android: Increase JVM memory in gradle.properties (-Xmx2048m).
+
+iOS: Ensure BoringSSL is linked properly and avoid using the "Track" feature if building on low-resource machines to save RAM during compilation.
+
+👨‍💻 Author
+Mahadurage Sadeesa Damruwan Student ID: 10965346 NSBM Green University / Plymouth University Partnership
